@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}My Notes{% endblock %}
+
+{% block content %}
+    {{ super() }}
+    <body>
+        <table id="notes">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Note</th>
+                </tr>
+            {% for note in notes %}
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ note[2] }}</td>
+                    <td>{{ note[3] }}</td>
+                </tr>
+            <tbody>
+            {% endfor %}
+        </table>
+    </body>
+{% endblock %}

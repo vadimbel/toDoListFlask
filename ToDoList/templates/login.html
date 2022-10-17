@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Login Page{% endblock %}
+
+{% block content %}
+    {{ super() }}
+<body>
+    <form action="{{ url_for('login') }}" method="post">
+        <div class="container">
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            {% if username_error %}
+            <p class="error">{{ username_error }}</p>
+            {% endif %}
+
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            {% if password_error %}
+            <p class="error">{{ password_error }}</p>
+            {% endif %}
+
+            <button type="submit">Login</button>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" class="clearbtn">Clear</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+</body>
+{% endblock %}

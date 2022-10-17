@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <style>
+        body {
+        height: 125vh;
+        background-image: url({{ url_for('static', filename='background2.jpg') }});
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 80px;
+        padding: 30px;
+    }
+    </style>
+    {% block content %}
+    <header>
+        <img src="https://codetheweb.blog/assets/img/icon2.png">
+        <nav>
+            <ul>
+                {% if not user %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
+                {% if user %}
+                <li><a href="{{ url_for('create_note') }}">Create Note</a></li>
+                <li><a href="{{ url_for('my_notes') }}">My Notes</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    {% endblock %}
+</body>
+</html>

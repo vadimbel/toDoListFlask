@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Create Note{% endblock %}
+
+{% block content %}
+    {{ super() }}
+<body>
+    <form action="{{ url_for('create_note') }}" method="POST">
+        <textarea class="title" name="title">Enter title here</textarea>
+        <textarea class="Note" name="note">Enter Note here</textarea>
+        <button type="submit">Login</button>
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+        {% if message %}
+        <p class="message">{{ message }}</p>
+        {% endif %}
+    </form>
+</body>
+{% endblock %}
